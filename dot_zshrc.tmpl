@@ -1,41 +1,14 @@
-{{- if eq .chezmoi.os "darwin" }}
-# macOS-specific code
-source /opt/homebrew/opt/spaceship/spaceship.zsh
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
-alias brewup="brew update && brew upgrade"
-{{ else if eq .chezmoi.os "linux" }}
-# Linux-specific code (any distro)
-source "$HOME/.zsh/spaceship/spaceship.zsh"
-{{   if eq .chezmoi.osRelease.id "debian" }}
-# Debian-specific code
-{{   else if eq .chezmoi.osRelease.id "fedora" }}
-# Fedora-specific code
-{{   end }}
-# Debian-specific doe
-{{ end }}
+# OS specific values
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   include ".zshrc_darwin" -}}
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   include ".zshrc_linux" -}}
+{{- end -}}
 
-# hostname-specific code
-{{- if eq .chezmoi.hostname "plata" }}
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Applications/radioconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Applications/radioconda/etc/profile.d/conda.sh" ]; then
-        . "/Applications/radioconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/Applications/radioconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# Hostname specific values
+{{- if eq .chezmoi.hostname "plata" -}}
+{{-   include ".zshrc_plata" -}}
+{{- end -}}
 
-if [ -f "/Applications/radioconda/etc/profile.d/mamba.sh" ]; then
-    . "/Applications/radioconda/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-{{ end }}
-
-
+# Universal values
 alias ll='ls -alF'

@@ -2,13 +2,20 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Will Coquillette
-	email = 4646219+willquill@users.noreply.github.com 
+	email = 4646219+willquill@users.noreply.github.com
+	signingkey = {{ .chezmoi.homeDir }}/.ssh/id_github
 [push]
 	autoSetupRemote = true
-[init]
-	templateDir = {{ .templateDir }} 
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
+{{- if eq .chezmoi.os "darwin" }}
+[init]
+	templateDir = {{ .chezmoi.homeDir }}/.git-template
+{{ else if eq .chezmoi.os "linux" }}
+[init]
+	templateDir = /usr/share/git-core/templates
+{{ end }}
