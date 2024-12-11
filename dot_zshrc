@@ -1,7 +1,0 @@
-source /opt/homebrew/opt/spaceship/spaceship.zsh
-
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
-alias brewup="brew update && brew upgrade"
-
-alias ll='ls -alF'
