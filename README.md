@@ -89,9 +89,7 @@ The `~/.zshrc` will also be generated from a template, but it uses chezmoi varia
 ### Git Config
 
 The `init.templateDir` specifies the directory from which template files and directories will be copied when initializing a new repository.
-```
 
 ## Credit
 
 - Inspiration from [Kevin](https://github.com/thatarchguy/dotfiles)
-- 
