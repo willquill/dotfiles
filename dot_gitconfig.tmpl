@@ -1,0 +1,14 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Will Coquillette
+	email = 4646219+willquill@users.noreply.github.com 
+[push]
+	autoSetupRemote = true
+[init]
+	templateDir = {{ .templateDir }} 
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
