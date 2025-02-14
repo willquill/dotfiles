@@ -28,7 +28,7 @@ Pull latest changes from the repo and see what would change without applying:
 chezmoi git pull -- --autostash --rebase && chezmoi diff
 ```
 
-## Developing
+## Modifying
 
 On a system using chezmoi, if you want to edit the `~/.gitconfig` file, you should be editing the **template** instead of the file directly.
 
@@ -39,6 +39,12 @@ chezmoi edit ~/.zshrc
 ```
 
 This will open your editor to edit the template file that populates `~/.zshrc`.
+
+Alternatively, enter the chezmoi directory with this:
+
+```sh
+chezmoi cd
+```
 
 ### Ignore files/directories on different machines
 
