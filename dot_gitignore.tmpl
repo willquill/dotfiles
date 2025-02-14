@@ -67,3 +67,24 @@ public
 .idea
 .vscode
 .DS_Store
+
+# Homelab-specific things
+# Ignore most things in config, but not the whole directory
+config/*
+
+# Do not ignore the following specific files
+!config/traefik/
+!config/traefik/config.yml
+!config/traefik/traefik.yml
+!config/homeassistant/
+!config/homeassistant/*.yaml
+
+# Ignore Photoprism storage and database
+photoprism/database
+photoprism/storage
+
+# Ignore Frigate DB (backed up via LXC backup)
+frigate/config/frigate/db
+
+# Ignore immich/postgres
+immich/postgres
