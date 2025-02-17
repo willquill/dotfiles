@@ -70,22 +70,24 @@ public
 .DS_Store
 
 # Homelab-specific things
-# Ignore most things in config, but not the whole directory
-config/*
+# Ignore most things in docker service configs, but not the whole directory
+**/config/*
 
 # Do not ignore the following specific files
-!config/traefik/
-!config/traefik/config.yml
-!config/traefik/traefik.yml
-!config/homeassistant/
-!config/homeassistant/*.yaml
+!**/homeassistant/
+!**/homeassistant/*.yaml
+!**/traefik/
+
+# Ignore some Traefik files
+**/traefik/acme.json
+**/traefik/usersfile.txt
 
 # Ignore Photoprism storage and database
-photoprism/database
-photoprism/storage
+homelab/photoprism/database
+homelab/photoprism/storage
 
 # Ignore Frigate DB (backed up via LXC backup)
-frigate/config/frigate/db
+homelab/frigate/config/frigate/db
 
 # Ignore immich/postgres
-immich/postgres
+homelab/immich/postgres
