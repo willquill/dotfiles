@@ -76,11 +76,25 @@ public
 # Do not ignore the following specific files
 !**/homeassistant/
 !**/homeassistant/*.yaml
+
+# Do not ignore trraefik
 !**/traefik/
 
 # Ignore some Traefik files
 **/traefik/acme.json
 **/traefik/usersfile.txt
+
+# Do not ignore these traefik files
+!config/traefik/
+!config/traefik/config.yml
+!config/traefik/traefik.yml
+
+# Do not ignore homeassistant files
+!config/homeassistant/
+!config/homeassistant/*.yaml
+
+# Do not ignore these DNSControl files
+!config/dnscontrol/dnsconfig.js
 
 # Ignore Photoprism storage and database
 homelab/photoprism/database
