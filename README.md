@@ -28,6 +28,12 @@ Pull latest changes from the repo and see what would change without applying:
 chezmoi git pull -- --autostash --rebase && chezmoi diff
 ```
 
+Pull latest changes and apply:
+
+```sh
+chezmoi git pull -- --autostash --rebase && chezmoi apply
+```
+
 ## Modifying
 
 On a system using chezmoi, if you want to edit the `~/.gitconfig` file, you should be editing the **template** instead of the file directly.
