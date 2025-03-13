@@ -1,14 +1,28 @@
+###############################
 # OS specific values
+###############################
+
 {{- if eq .chezmoi.os "darwin" -}}
 {{-   include ".zshrc_darwin" -}}
 {{- else if eq .chezmoi.os "linux" -}}
 {{-   include ".zshrc_linux" -}}
 {{- end -}}
 
+###############################
 # Hostname specific values
+###############################
+
 {{- if eq .chezmoi.hostname "plata" -}}
 {{-   include ".zshrc_plata" -}}
 {{- end -}}
 
+###############################
 # Universal values
+###############################
+
 alias ll='ls -alF'
+
+# chezmoi aliases
+# Pull latest changes from the repo and see what would change without applying 
+alias chezdiff='chezmoi git pull -- --autostash --rebase && chezmoi diff'
+alias chezapply='chezmoi git pull -- --autostash --rebase && chezmoi apply'
