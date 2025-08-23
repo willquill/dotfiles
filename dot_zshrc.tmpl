@@ -26,3 +26,6 @@ alias ll='ls -alF'
 # Pull latest changes from the repo and see what would change without applying 
 alias chezdiff='chezmoi git pull -- --autostash --rebase && chezmoi diff'
 alias chezapply='chezmoi git pull -- --autostash --rebase && chezmoi apply'
+
+# Use starship
+eval "$(starship init zsh)"

@@ -52,6 +52,26 @@ Alternatively, enter the chezmoi directory with this:
 chezmoi cd
 ```
 
+## Adding new files to Chezmoi
+
+Scenario: You like to keep your Starship config in `~/.config/starhip.toml`
+
+First, put your file where you want it to be. Then add it to chezmoi.
+
+```sh
+chezmoi source-path &&\
+  chezmoi add ~/.config/starship.toml
+```
+
+Do the same for ttf files:
+
+```sh
+chezmoi source-path &&\
+  mkdir -p "$(chezmoi source-path)/dot_local/share/fonts/" &&\
+  cp -r ~/.local/share/fonts/* "$(chezmoi source-path)/dot_local/share/fonts/" &&\
+  chezmoi add ~/.local/share/fonts
+```
+
 ### Ignore files/directories on different machines
 
 See [here](https://www.chezmoi.io/user-guide/manage-machine-to-machine-differences/#ignore-files-or-a-directory-on-different-machines) for documentation
