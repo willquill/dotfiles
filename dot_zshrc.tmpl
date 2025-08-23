@@ -26,3 +26,15 @@ alias ll='ls -alF'
 # Pull latest changes from the repo and see what would change without applying 
 alias chezdiff='chezmoi git pull -- --autostash --rebase && chezmoi diff'
 alias chezapply='chezmoi git pull -- --autostash --rebase && chezmoi apply'
+
+gcb() {
+  local branch
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null) || { echo "Not in a git repo"; return 1; }
+  git add -A
+  git commit -sm "$branch"
+  git push
+}
+
+
+# Use starship
+eval "$(starship init zsh)"

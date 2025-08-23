@@ -52,6 +52,17 @@ Alternatively, enter the chezmoi directory with this:
 chezmoi cd
 ```
 
+## Adding new files to Chezmoi
+
+Scenario: You like to keep your Starship config in `~/.config/starhip.toml`
+
+First, put your file where you want it to be. Then add it to chezmoi.
+
+```sh
+chezmoi source-path &&\
+  chezmoi add ~/.config/starship.toml
+```
+
 ### Ignore files/directories on different machines
 
 See [here](https://www.chezmoi.io/user-guide/manage-machine-to-machine-differences/#ignore-files-or-a-directory-on-different-machines) for documentation
@@ -101,6 +112,12 @@ The `~/.zshrc` will also be generated from a template, but it uses chezmoi varia
 ### Git Config
 
 The `init.templateDir` specifies the directory from which template files and directories will be copied when initializing a new repository.
+
+## Provisioning outside of Chezmoi
+
+### Fonts
+
+To get the FiraCode Nerd Font with a script, execute the appropriate `firacode.sh` script for your OS.
 
 ## Credit
 
