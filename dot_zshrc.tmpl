@@ -1,26 +1,33 @@
-###############################
-# OS specific values
-###############################
 
 {{- if eq .chezmoi.os "darwin" -}}
+
+# START - OS specific values
 {{-   include ".zshrc_darwin" -}}
 {{- else if eq .chezmoi.os "linux" -}}
 {{-   include ".zshrc_linux" -}}
+# END - OS specific values
+
 {{- end -}}
 
-###############################
-# Hostname specific values
-###############################
 
 {{- if eq .chezmoi.hostname "plata" -}}
+
+# START - Hostname specific values
 {{-   include ".zshrc_plata" -}}
+# END - Hostname specific values
+
 {{- end -}}
 
-###############################
-# Universal values
-###############################
+# START - Universal values
 
+# aliases
 alias ll='ls -alF'
+
+# Load local zshrc if it exists
+# Allows for local overrides without committing to the repo
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
 
 # chezmoi aliases
 # Pull latest changes from the repo and see what would change without applying 
@@ -35,6 +42,7 @@ gcb() {
   git push
 }
 
-
 # Use starship
 eval "$(starship init zsh)"
+
+# END - Universal values
