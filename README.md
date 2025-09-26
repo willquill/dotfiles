@@ -107,6 +107,39 @@ By doing that, the value of `templateDir` after applying my `dot_gitconfig.tmpl`
 
 The `~/.zshrc` will also be generated from a template, but it uses chezmoi variables like `os` and `hostname` (see them with `chezmoi data`) and does not require the chezmoi.yaml file.
 
+### Adding kitty.conf template
+
+```sh
+chezmoi add ~/.config/kitty/kitty.conf --template
+```
+
+Add a few base settings and something machine-specific:
+
+```conf
+# Base Kitty settings
+font_family      FiraCode Nerd Font
+enable_audio_bell no
+background #232627
+
+{{ if eq .chezmoi.hostname "spacewalk" }}
+# Machine-specific overrides
+font_size 10.0
+{{ end }}
+```
+
+See a diff:
+
+```sh
+chezmoi diff ~/.config/kitty/kitty.conf
+```
+
+Apply:
+
+```sh
+chezmoi apply
+```
+
+
 ## Additional Notes
 
 ### Git Config
