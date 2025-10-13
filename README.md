@@ -86,7 +86,7 @@ This will omit installing the README on all machines and only install `.work` if
 
 To make managing chezmoi easier, the templates should, when possible, reference a chezmoi variable (similar to an Ansible fact), for which a key/value pair always exist on every host.
 
-However, you can also have a template use a value that comes from a file on the host. For example, if I want the value of `init.templateDir` in my git config to be unique per host and for the value to *not* come from a chezmoi variable, I would need to populate the value within `~/.config/chezmoi/chezmoi.yaml` on the host. You can use TOML, JSON, JSONC, or YAML.
+However, you can also have a template use a value that comes from a file on the host. For example, if I want the value of `init.templateDir` in my git config to be unique per host and for the value to _not_ come from a chezmoi variable, I would need to populate the value within `~/.config/chezmoi/chezmoi.yaml` on the host. You can use TOML, JSON, JSONC, or YAML.
 
 Here's an example of me creating and populating the file on a new macOS system:
 
@@ -100,7 +100,7 @@ And in my `dot_gitconfig.tmpl` file, I would enter:
 
 ```toml
 [init]
-    templateDir = {{ .templateDir }} 
+    templateDir = {{ .templateDir }}
 ```
 
 By doing that, the value of `templateDir` after applying my `dot_gitconfig.tmpl` file will be `/Users/will/.git-template`.
@@ -139,12 +139,15 @@ Apply:
 chezmoi apply
 ```
 
-
 ## Additional Notes
 
 ### Git Config
 
 The `init.templateDir` specifies the directory from which template files and directories will be copied when initializing a new repository.
+
+### Starship
+
+Color theme information found [here](https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md).
 
 ## Provisioning outside of Chezmoi
 
