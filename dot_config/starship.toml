@@ -47,6 +47,7 @@ color_sky = "#44e5ff"
 color_sapphire = "#60dff5"
 color_blue = "#5ea6ff"
 color_lavender = "#7287fd"
+color_lavender_light = "#a1aefbff"
 color_text = "#4c4f69"
 color_subtext1 = "#5c5f77"
 color_subtext0 = "#6c6f85"
@@ -115,13 +116,14 @@ format = '[ [$branch ](fg:color_fg0 bg:color_green)]($style)'
 
 [git_status]
 style = "bg:color_green"
-format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style) '
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_green)]($style)'
 
 [time]
 disabled = false
 time_format = "%R"
-style = "bg:color_bg1"
-format = '[[ @ $time CST](fg:color_bg1 bg:color_fg0-)]($style)'
+style = "bg:color_teal"
+format = '[[ @ $time CST](fg:color_teal bg:color_fg0-)]($style)'
+
 
 [battery]
 full_symbol = "• "
