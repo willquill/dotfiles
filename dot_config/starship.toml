@@ -97,11 +97,11 @@ repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($re
 [git_branch]
 #symbol = ""
 style = "bg:color_green"
-format = '[ [$branch](fg:color_fg0 bg:color_green)]($style)'
+format = '[ [$branch ](fg:color_fg0 bg:color_green)]($style)'
 
 [git_status]
 style = "bg:color_green"
-format = '[[ ($all_status$ahead_behind) ](fg:color_fg0 bg:color_green)]($style) '
+format = '[[($all_status$ahead_behind) ](fg:color_fg0 bg:color_green)]($style) '
 
 [time]
 disabled = false
