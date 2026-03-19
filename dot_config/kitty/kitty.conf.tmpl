@@ -7,6 +7,7 @@ enable_audio_bell no
 background #232627
 
 font_family      family="FiraCode Nerd Font Mono"
+font_size 14.0
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -18,6 +19,9 @@ font_size 10.0
 font_size 14.0
 {{ end }}
 
+# This is for the Claude Code annoying input issue
+# Suppress responses for graphics protocol
+no_response_on_graphics_delete yes
 
 # vim:fileencoding=utf-8:foldmethod=marker
 
@@ -40,7 +44,6 @@ font_size 14.0
 #: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
 #: syntax>.
 
-font_size 10.0
 
 #: Font size (in pts).
 
@@ -1618,7 +1621,7 @@ font_size 10.0
 #: See rc_custom_auth <https://sw.kovidgoyal.net/kitty/remote-
 #: control/#rc-custom-auth> for details.
 
-# allow_remote_control no
+allow_remote_control yes 
 
 #: Allow other programs to control kitty. If you turn this on, other
 #: programs can control all aspects of kitty, including sending text
