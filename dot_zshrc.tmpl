@@ -31,8 +31,8 @@ if [ -f ~/.zsh.d/.env ]; then
   source ~/.zsh.d/.env
 fi
 
-for file in ~/.zshrc.d/*.zsh; do
-  [ -r "$file" ] && source "$file"
+for file in ~/.zshrc.d/*.zshrc(N); do
+  source "$file"
 done
 
 # aliases
