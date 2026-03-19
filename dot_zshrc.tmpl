@@ -20,15 +20,24 @@
 
 # START - Universal values
 
-# aliases
-alias ll='ls -alF'
-alias gpf='git commit --amend --no-edit && git push --force-with-lease'
-
 # Load local zshrc if it exists
 # Allows for local overrides without committing to the repo
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+# Source .env file if it exists
+if [ -f ~/.zsh.d/.env ]; then
+  source ~/.zsh.d/.env
+fi
+
+for file in ~/.zshrc.d/*.zsh; do
+  [ -r "$file" ] && source "$file"
+done
+
+# aliases
+alias ll='ls -alF'
+alias gpf='git commit --amend --no-edit && git push --force-with-lease'
 
 # chezmoi aliases
 # Pull latest changes from the repo and see what would change without applying 
