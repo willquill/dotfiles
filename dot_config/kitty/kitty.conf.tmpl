@@ -12,6 +12,13 @@ bold_font        auto
 italic_font      auto
 bold_italic_font auto
 
+{{ if eq .chezmoi.hostname "spacewalk" }}
+# Machine-specific overrides
+font_size 10.0
+{{ else }} 
+font_size 14.0
+{{ end }}
+
 # This is for the Claude Code annoying input issue
 # Suppress responses for graphics protocol
 no_response_on_graphics_delete yes
