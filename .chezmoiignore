@@ -1,0 +1,10 @@
+README.md
+LICENSE
+archived
+
+{{ if ne .chezmoi.os "darwin" }}
+firacode_macos.sh
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+firacode_linux.sh
+{{ end }}
