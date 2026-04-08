@@ -1,10 +1,8 @@
 README.md
 LICENSE
 archived
+firacode_linux.sh
 
 {{ if ne .chezmoi.os "darwin" }}
 firacode_macos.sh
-{{ end }}
-{{ if ne .chezmoi.os "linux" }}
-firacode_linux.sh
 {{ end }}
