@@ -25,26 +25,26 @@ chezmoi apply
 Pull latest changes from the repo and see what would change without applying:
 
 ```sh
-chezmoi git pull -- --autostash --rebase && chezmoi diff
+chezmoi update --apply=false --dry-run --verbose
 ```
 
 Pull latest changes and apply:
 
 ```sh
-chezmoi git pull -- --autostash --rebase && chezmoi apply
+chezmoi update
 ```
+
+`chezmoi update` pulls with `git pull --autostash --rebase` and applies by default, replacing the older two-step invocations.
 
 ## Modifying
 
-On a system using chezmoi, if you want to edit the `~/.gitconfig` file, you should be editing the **template** instead of the file directly.
-
-To edit `~/.local/share/chezmoi/dot_zshrc.tmpl`, use the following command:
+On a system using chezmoi, if you want to edit a managed file like `~/.zshrc`, you should be editing the **source file** in the chezmoi source directory instead of the target directly.
 
 ```sh
 chezmoi edit ~/.zshrc
 ```
 
-This will open your editor to edit the template file that populates `~/.zshrc`.
+This opens the corresponding source file (e.g. `~/.local/share/chezmoi/dot_zshrc.tmpl`) in your editor.
 
 Alternatively, enter the chezmoi directory with this:
 
@@ -54,13 +54,12 @@ chezmoi cd
 
 ## Adding new files to Chezmoi
 
-Scenario: You like to keep your Starship config in `~/.config/starhip.toml`
+Scenario: You like to keep your Starship config in `~/.config/starship.toml`.
 
-First, put your file where you want it to be. Then add it to chezmoi.
+First, put your file where you want it to be. Then add it to chezmoi:
 
 ```sh
-chezmoi source-path &&\
-  chezmoi add ~/.config/starship.toml
+chezmoi add ~/.config/starship.toml
 ```
 
 ### Ignore files/directories on different machines
