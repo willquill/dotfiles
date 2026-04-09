@@ -26,9 +26,9 @@ if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
 
-# Source .env file if it exists
-if [ -f ~/.zsh.d/.env ]; then
-  source ~/.zsh.d/.env
+# Source machine-managed env file if it exists
+if [ -f ~/.zshrc.d/.env ]; then
+  source ~/.zshrc.d/.env
 fi
 
 for file in ~/.zshrc.d/*.zshrc(N); do
