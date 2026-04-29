@@ -26,8 +26,6 @@ $line_break$character"""
 palette = 'catppuccin_macchiato'
 
 # Palette definitions
-
-# Palette definitions
 [palettes.catppuccin_macchiato]
 color_bg1 = '#fcf4d0'
 color_fg0 = '#34374a'
@@ -66,10 +64,6 @@ color_crust = "#dce0e8"
 success_symbol = '[\$](bold fg:color_green)'
 error_symbol = '[\$](bold fg:color_red)'
 
-[os]
-disabled = true
-style = "bg:color_red fg:color_fg0"
-
 [username]
 show_always = true
 style_user = "bg:color_red fg:color_fg0"
@@ -82,8 +76,6 @@ ssh_symbol = '🌐'
 ssh_only = false # always show hostname
 style = "bg:color_red fg:color_fg0"
 format = '[$ssh_symbol$hostname:]($style)'
-#format = '[$ssh_symbol$hostname:]($style)'
-#format = '[hostname ]($style)'
 
 [directory]
 style = "fg:color_fg0 bg:color_peach"
@@ -105,16 +97,9 @@ format = '[[($all_status$ahead_behind) ](fg:color_fg0 bg:color_green)]($style) '
 
 [time]
 disabled = false
-time_format = "%R"
+time_format = "%R %Z"
 style = "bg:color_blue_light"
-format = '[[ @ $time CST ](fg:color_fg0 bg:color_blue_light)]($style)'
-
-[battery]
-full_symbol = "• "
-charging_symbol = "⇡ "
-discharging_symbol = "⇣ "
-unknown_symbol = "❓ "
-empty_symbol = "❗ "
+format = '[[ @ $time ](fg:color_fg0 bg:color_blue_light)]($style)'
 
 [erlang]
 symbol = "ⓔ "

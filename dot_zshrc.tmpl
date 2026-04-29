@@ -37,12 +37,12 @@ done
 
 # aliases
 alias ll='ls -alF'
+# DESTRUCTIVE: rewrites published history — use only on personal branches
 alias gpf='git commit --amend --no-edit && git push --force-with-lease'
 
 # chezmoi aliases
-# Pull latest changes from the repo and see what would change without applying 
-alias chezdiff='chezmoi git pull -- --autostash --rebase && chezmoi diff'
-alias chezapply='chezmoi git pull -- --autostash --rebase && chezmoi apply'
+alias chezdiff='chezmoi update --apply=false --dry-run --verbose'
+alias chezapply='chezmoi update'
 
 gcb() {
   local branch
