@@ -116,7 +116,7 @@ Add a few base settings and something machine-specific:
 
 ```conf
 # Base Kitty settings
-font_family      FiraCode Nerd Font
+font_family      family="FiraCode Nerd Font Mono"
 enable_audio_bell no
 background #232627
 
@@ -153,6 +153,32 @@ Color theme information found [here](https://github.com/catppuccin/catppuccin/bl
 ### Fonts
 
 To get the FiraCode Nerd Font with a script, execute the appropriate `firacode.sh` script for your OS.
+
+## tmux
+
+tmux configuration is managed at `~/.tmux.conf` via the `dot_tmux.conf` source file.
+
+### TPM (Tmux Plugin Manager)
+
+TPM itself is installed automatically by chezmoi via `.chezmoiexternal.toml`, which clones
+`https://github.com/tmux-plugins/tpm` into `~/.tmux/plugins/tpm` on every `chezmoi update`.
+
+### Plugins
+
+After a fresh `chezmoi apply` on a new machine, install plugins by opening tmux and pressing
+`prefix + I` (capital i). TPM downloads all plugins listed in `.tmux.conf`.
+
+To update plugins: `prefix + U`. To remove unlisted plugins: `prefix + alt + u`.
+
+| Plugin | Purpose |
+|--------|---------|
+| **tmux-sensible** | Sane defaults — UTF-8, larger history, faster key repeat |
+| **tmux-resurrect** | Manual session save (`prefix+Ctrl-s`) and restore (`prefix+Ctrl-r`) across tmux restarts |
+| **tmux-continuum** | Automatic session saving every 15 min; auto-restores on server start (`@continuum-restore on`) |
+| **tmux-logging** | Log pane output to file (`prefix+Shift-p`); log entire history (`prefix+alt-shift-p`) |
+| **tmux-yank** | Copy to system clipboard in copy mode: `y` copies selection, `Y` copies current working directory |
+| **catppuccin/tmux** | Status bar theme matching the catppuccin Starship prompt (macchiato flavor) |
+| **tmux-fzf** | fzf-powered session/window/pane switcher; launch with `prefix + F` |
 
 ## Credit
 
